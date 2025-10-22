@@ -2,85 +2,105 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Niveles obras río Aburrá – SIATA</title>
+  <title>Dashboard de Niveles de Quebradas – SIATA</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background: #f2f2f2;
-      margin: 0;
-      padding: 10px;
-      overflow: hidden; /* evita scroll */
+      margin: 20px;
     }
     h1 {
       text-align: center;
-      margin: 5px 0 10px 0;
-      font-size: 1.8em;
+      margin-bottom: 25px;
     }
     .container {
       display: grid;
-      grid-template-columns: repeat(4, 1fr); /* 4 columnas */
-      grid-auto-rows: 1fr;
-      grid-gap: 10px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
       justify-items: center;
-      align-items: center;
-      height: calc(100vh - 60px); /* ocupa toda la pantalla menos el título */
     }
     .panel {
       background: white;
-      padding: 5px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       text-align: center;
-      width: 95%;
-      height: 95%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .panel h2 {
-      font-size: 0.9em;
-      margin: 4px 0;
+      width: 90%;
     }
     .panel img {
       width: 100%;
       height: auto;
-      border-radius: 4px;
-      max-height: 85%;
-      object-fit: contain;
+      border-radius: 6px;
     }
-    #updateTime {
-      text-align: center;
-      font-size: 0.9em;
-      color: #555;
-      margin-top: 4px;
+    .panel h2 {
+      font-size: 1.1em;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 1000px) {
+      .container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>Niveles obras río Aburrá – SIATA</h1>
-  <div id="updateTime"></div>
-
+  <h1>Dashboard de Niveles de Quebradas – SIATA</h1>
   <div class="container">
+    
     <div class="panel">
       <h2>R. Medellín – Estación Metro Ayura</h2>
-      <img src="https://siata.gov.co/hidrologia/nivel_new/3h/584_rmedellinestacionmetroayura.png">
+      <img src="https://siata.gov.co/hidrologia/nivel_new/3h/584_rmedellinestacionmetroayura.png" alt="Estación Metro Ayura">
     </div>
 
     <div class="panel">
       <h2>R. Medellín – Estación Metro Aguacatala</h2>
-      <img src="https://siata.gov.co/hidrologia/nivel_new/3h/687_rmedellinestacionmetroaguacatala.png">
+      <img src="https://siata.gov.co/hidrologia/nivel_new/3h/687_rmedellinestacionmetroaguacatala.png" alt="Estación Metro Aguacatala">
     </div>
 
     <div class="panel">
       <h2>R. Medellín – Estación Metro Envigado</h2>
-      <img src="https://siata.gov.co/hidrologia/nivel_new/3h/678_rmedellinestacionmetroenvigado.png">
+      <img src="https://siata.gov.co/hidrologia/nivel_new/3h/678_rmedellinestacionmetroenvigado.png" alt="Estación Metro Envigado">
     </div>
 
     <div class="panel">
       <h2>R. Medellín – Estación Metro Sabaneta</h2>
-      <img src="https://siata.gov.co/hidrologia/nivel_new/3h/91_rmedellinestacionmetrosabaneta.png">
+      <img src="https://siata.gov.co/hidrologia/nivel_new/3h/91_rmedellinestacionmetrosabaneta.png" alt="Estación Metro Sabaneta">
     </div>
 
     <div class="panel">
-      <h2>Q. La A
+      <h2>Q. La Ayura – Los Naranjos</h2>
+      <img src="https://siata.gov.co/hidrologia/nivel_new/3h/423_qlaayuralosnaranjos.png" alt="Q. La Ayura Los Naranjos">
+    </div>
+
+    <div class="panel">
+      <h2>Q. Doña María – Santamaría 2</h2>
+      <img src="https://siata.gov.co/hidrologia/nivel_new/3h/236_qdonamariasantamaria2.png" alt="Q. Doña María Santamaría 2">
+    </div>
+
+    <div class="panel">
+      <h2>Q. La Jabalcona – Aguacatala</h2>
+      <img src="https://siata.gov.co/hidrologia/nivel_new/3h/677_qlajabalconaaguacatala.png" alt="Q. La Jabalcona Aguacatala">
+    </div>
+
+  </div>
+
+  <script>
+    function refreshImages() {
+      const interval = 5 * 60 * 1000; // 5 minutos
+      const imgs = document.querySelectorAll('img');
+      imgs.forEach(img => {
+        const base = img.src.split('?')[0];
+        img.src = base + '?t=' + new Date().getTime(); // evita caché
+      });
+      setTimeout(refreshImages, interval);
+    }
+    window.onload = refreshImages;
+  </script>
