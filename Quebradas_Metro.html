@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard de Niveles de Quebradas – SIATA</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 10px;
+      overflow: hidden; /* evita scroll */
+    }
+    h1 {
+      text-align: center;
+      margin: 5px 0 10px 0;
+      font-size: 1.8em;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 10px;
+      justify-items: center;
+      align-items: center;
+      height: calc(100vh - 60px); /* ocupa toda la pantalla menos el título */
+    }
+    .panel {
+      background: white;
+      padding: 5px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 95%;
+      height: 95%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .panel h2 {
+      font-size: 0.9em;
+      margin: 4px 0;
+    }
+    .panel img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      max-height: 85%;
+      object-fit: contain;
+    }
+    #updateTime {
+      text-align: center;
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Dashboard de Niveles de Quebradas – SIATA</h1>
+  <div id="updateTime"></div>
+
+  <div class="container">
+    <div class="panel">
+      <h2>R. Medellín – Estación Metro Ayura</h2>
+      <img src="https://siata.gov.co/hidrologia/nivel_new/3h/584_rmedellinestacionmetroayura.png">
+    </div>
+
+    <div class="panel">
+      <h2>R. Medellín – Estación Metro Aguacatala</h2>
+      <img src="https://siata.gov.co/hidrologia/nivel_new/3h/687_rmedellinestacionmetroaguacatala.png">
+    </div>
+
+    <div class="panel">
+      <h2>R. Medellín – Estación Metro Envigado</h2>
+      <img src="https://siata.gov.co/hidrologia/nivel_new/3h/678_rmedellinestacionmetroenvigado.png">
+    </div>
+
+    <div class="panel">
+      <h2>R. Medellín – Estación Metro Sabaneta</h2>
+      <img src="https://siata.gov.co/hidrologia/nivel_new/3h/91_rmedellinestacionmetrosabaneta.png">
+    </div>
+
+    <div class="panel">
+      <h2>Q. La Ayura – Los Naranjos</h2>
+      <img src="https://siata.gov.co/hidrologia/nivel_new/3h/423_qlaayuralosnaranjos.png">
+    </div>
+
+    <div class="panel">
+      <h2>Q. Doña María – Santamaría 2</h2>
+      <img src="https://siata.gov.co/hidrologia/nivel_new/3h/236_qdonamariasantamaria2.png">
+    </div>
+
+    <div class="panel">
